@@ -4,6 +4,7 @@ import { max } from "d3-array";
 import { scaleLinear, scaleBand } from "d3-scale";
 import { axisLeft, axisBottom } from "d3-axis";
 import React from "react";
+import { BarChartProps } from "../../types/bar-chart-types";
 
 // margin convention often used with D3
 const margin = { top: 80, right: 60, bottom: 80, left: 60 };
@@ -11,15 +12,6 @@ let width = 600 - margin.left - margin.right;
 let height = 600 - margin.top - margin.bottom;
 
 const color = ["#f05440", "#d5433d", "#b33535", "#283250"];
-
-export interface IBarChartData {
-  sprint: string;
-  bugs: number;
-}
-
-export interface BarChartProps {
-  data: IBarChartData[];
-}
 
 const BarChart: React.FC<BarChartProps> = ({ data}) => {
   const d3svg = useRef(null);

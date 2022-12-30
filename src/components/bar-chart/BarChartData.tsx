@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { csv } from 'd3-fetch';
 import { ascending } from 'd3-array';
 import React from 'react';
-import BarChart, { IBarChartData } from './BarChart';
+import BarChart from './BarChart';
+import { IBarChartData } from '../../types/bar-chart-types';
 
 const parseNA = (string: string) => (string === 'NA' ? undefined : string)
 

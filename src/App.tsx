@@ -1,10 +1,29 @@
 import React from 'react';
 import './App.css';
-import BarChartData from './components/BarChartData';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import BarChartData from './components/bar-chart/BarChartData';
+import Root from './components/root/Root';
+import ErrorPage from './components/error/ErrorPage';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/barchart",
+        element: <BarChartData />
+      }
+    ]
+  }
+]);
 
 function App() {
   return (
-    <BarChartData />
+    <ul>
+      <RouterProvider router={router} />
+    </ul>
   );
 }
 
